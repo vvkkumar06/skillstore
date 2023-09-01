@@ -11,11 +11,7 @@ const typeDefs = gql(readFileSync('./schema.gql', {
 
 const resolvers = {
     Query: {
-        products: () => productsData,
-        categories: () => categoriesData
-    },
-    Category: {
-        products: (parent) => productsData.filter(p => p.categoryId == parent.id)
+        products: () => productsData
     }
 }
 
