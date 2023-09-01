@@ -1,6 +1,5 @@
 type Query {
     products: [Product!]!
-    categories: [Category!]!
 }
 
 #Int Float String Boolean ID
@@ -9,11 +8,4 @@ type Product {
     name: String!
     description: String!
     price: Float!
-    category: Category
-}
-
-type Category {
-    id: ID!
-    name: String!
-    products: [Product!]!
 }
