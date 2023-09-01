@@ -3,7 +3,6 @@ import { startStandaloneServer} from '@apollo/server/standalone';
 import gql from 'graphql-tag';
 import { readFileSync } from 'fs';
 import { productsData } from './db/products.js';
-import { categoriesData } from './db/category.js'
 
 const typeDefs = gql(readFileSync('./schema.gql', {
     encoding: 'utf-8'
