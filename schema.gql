@@ -1,0 +1,65 @@
+type Query {
+    products: [Product!]!  #it can not be null or [null]
+    categories: [Category!]!
+    product(id: ID!): Product
+    category(id: ID!): Category
+}
+#
+# Int Float String Boolean ID
+#
+# greeting: String!
+#
+
+interface ProductVariant {
+    id: ID!
+    variantName: String!
+    price: Float!
+}
+
+type SizeVariant implements ProductVariant {
+    id: ID!
+    variantName: String!
+    price: Float!
+    size: String!
+}
+
+type ColorVariant implements ProductVariant {
+    id: ID!
+    variantName: String!
+    price: Float!
+    color: String!
+}
+
+union ProductDiscount = FixedAmountDiscount | PercentageDiscount | BOGODiscount
+
+type FixedAmountDiscount {
+    id: ID!
+    amount: Float!
+}
+
+type PercentageDiscount {
+    id: ID!
+    percentage: Float!
+}
+
+type BOGODiscount {
+    id: ID!
+    buy: Int!
+    get: Int!
+}
+
+type Product {
+    id: ID!
+    name: String!
+    description: String!
+    price: Float!
+    category: Category!
+    variants: [ProductVariant!]!
+    discounts: ProductDiscount
+}
+
+type Category {
+    id: ID!
+    name: String!
+    products: [Product!]!
+}
