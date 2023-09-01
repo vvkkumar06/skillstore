@@ -1,0 +1,25 @@
+type Query {
+    products: [Product!]!  #it can not be null or [null]
+    categories: [Category!]!
+    product(id: ID!): Product
+    category(id: ID!): Category
+}
+#
+# Int Float String Boolean ID
+#
+# greeting: String!
+#
+
+type Product {
+    id: ID!
+    name: String!
+    description: String!
+    price: Float!
+    category: Category!
+}
+
+type Category {
+    id: ID!
+    name: String!
+    products: [Product!]!
+}
