@@ -1,0 +1,22 @@
+extend type Query {
+    orders(userId: ID!): [Order!]!
+}
+
+extend type Mutation {
+    createOrder(userId: ID!, createOrderData: [AddToCartInput!]): Order!
+}
+
+type Order {
+    id: ID!
+    user: User!
+    products: [OrderedProduct!]!
+    total: Float!
+    createdAt: Sting!
+}
+
+type OrderedProduct {
+    product: Product!
+    productVariant: ProductVariant
+    quantity: Int!
+    subTotal: Float!
+}
