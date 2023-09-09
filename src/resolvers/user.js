@@ -48,6 +48,17 @@ export default {
                 });
             }
 
+            const existingUser = usersData.find(user => user.username === username);
+
+            if(existingUser) {
+                throw new GraphQLError("User already exists!", {
+                    extensions: {
+                        code: ApolloServerErrorCode.BAD_REQUEST,
+                        username: username
+                    }
+                })
+            }
+
             const newUser = {id, username, email, role};
             usersData.push(newUser);
             return newUser;
