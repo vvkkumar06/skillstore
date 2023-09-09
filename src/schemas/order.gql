@@ -1,0 +1,22 @@
+extend type SSQuery {
+    orders(userId: ID!): [Order!]!
+}
+
+extend type SSMutation {
+    createOrder(userId: ID!, createOrderData: [AddToCartInput!]!): Order!
+}
+
+type Order {
+    id: ID!
+    user: User!
+    items: [OrderedProduct!]!
+    total: Float!
+    createdAt: String!
+}
+
+type OrderedProduct {
+    product: Product!
+    productVariant: ProductVariant
+    quantity: Int!
+    subTotal: Float!
+}

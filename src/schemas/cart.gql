@@ -1,0 +1,5 @@
+input AddToCartInput {
+    productId: ID!
+    variantId: ID
+    quantity: Int!
+}

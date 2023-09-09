@@ -1,0 +1,27 @@
+
+    extend type SSQuery {
+        categories: [Category!]!
+        category(id: ID!): Category
+    }
+
+
+    """
+    Category of the product type
+    """
+    type Category {
+
+        """
+            ID of the category
+        """
+        id: ID!
+
+        """
+            Name of the category
+        """
+        name: String!
+
+        """
+            Associated Products
+        """
+        products: [Product!]!
+    }
